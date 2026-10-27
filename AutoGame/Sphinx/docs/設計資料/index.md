@@ -7,6 +7,7 @@ AutoPlayCraft の設計・開発タスクをまとめた資料です。
 :caption: Contents:
 
 タスク一覧
+Gitの使い方
 GUI/全体フロー
 GUI/game_window
 GUI/project_select
