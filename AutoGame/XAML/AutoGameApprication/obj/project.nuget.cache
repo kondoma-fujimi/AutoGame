@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "q1B9oJmJIew=",
+  "success": true,
+  "projectFilePath": "D:\\dev\\my_Project\\AutoGame\\XAML\\AutoGameApprication\\AutoGameApprication.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\microsoft.win32.systemevents\\10.0.9\\microsoft.win32.systemevents.10.0.9.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\opencvsharp4\\4.13.0.20260627\\opencvsharp4.4.13.0.20260627.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\opencvsharp4.runtime.win\\4.13.0.20260627\\opencvsharp4.runtime.win.4.13.0.20260627.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\opencvsharp4.wpfextensions\\4.13.0.20260627\\opencvsharp4.wpfextensions.4.13.0.20260627.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\runtime.native.system.io.ports\\8.0.0\\runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\system.drawing.common\\10.0.9\\system.drawing.common.10.0.9.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\system.io.ports\\8.0.0\\system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\Mining-Base\\.nuget\\packages\\system.memory\\4.6.3\\system.memory.4.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

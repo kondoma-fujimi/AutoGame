@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoPlayCraft 要件定義 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3b47ca47"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            AutoPlayCraft 要件定義
+          </a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-01_background">1. 背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-02_system_overview">2. システム概要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-03_functional">3. 機能要件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-04_nonfunctional">4. 非機能要件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-05_enviroment">5. 開発環境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-06_constraints">6. 制約条件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-07_future">7. 今後の課題</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-glossary">用語集</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">AutoPlayCraft 要件定義</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AutoPlayCraft 要件定義 1.0.0 documentation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autoplaycraft">
+<h1>AutoPlayCraft 要件定義書<a class="headerlink" href="#autoplaycraft" title="Link to this heading"></a></h1>
+<p>本書は、Nintendo Switch 向けゲーム「ポケットモンスター」を対象とした<br />
+自動操作システム「AutoPlayCraft」の要件定義書である。</p>
+<div class="toctree-wrapper compound">
+<span id="document-01_background"></span><section id="id1">
+<h2>1. 背景<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>1.1 背景<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>自動ゲーム操作の需要が高まり、繰り返し入力や複雑な操作を正確に実行する手段が求められている。</p></li>
+<li><p>特にゲームの自動化では、同じ動作の繰り返しや状況判断が重要となる。</p></li>
+<li><p>AIを活用した画像認識と制御により、従来の手動操作では難しかった作業の自動化が可能となる。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>1.2 対象機器<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Nintendo Switch</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>1.3 目的<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>ゲームの自動操作を実現するため、AIによる視覚認識と入力制御を組み合わせたシステムを構築する。</p></li>
+<li><p>GUIアプリから制御内容を管理し、AIが認識した状況に応じて自動的に入力を行う。</p></li>
+</ul>
+</section>
+</section>
+<span id="document-02_system_overview"></span><section id="id1">
+<h2>2. システム概要<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>2.1 システムの概要<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>AutoPlayCraftは、自動ゲーム操作を実現するためのシステムです。</p>
+</section>
+<section id="id3">
+<h3>2.2 主要構成<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>GUIアプリ: PC上で動作する操作・管理用インターフェース</p></li>
+<li><p>コントローラー側: ゲーム操作を実行するデバイス</p></li>
+<li><p>AI推論エンジン: 画像認識と判断を行うモジュール</p></li>
+<li><p>通信インターフェース: UART / USB HID Vendor</p></li>
+<li><p>Nintendo Switch: 対象ゲーム機</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>2.3 処理フロー<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>GUIアプリがPC上で動作する</p></li>
+<li><p>PCがAIへゲーム画面情報を送信する</p></li>
+<li><p>PCがAIの判定結果をもとに制御信号を生成する</p></li>
+<li><p>コントローラー側がSwitchへ入力を送信する</p></li>
+</ol>
+<p><img alt="処理フローのスクリーンショット" src="_images/processing_flow.png" /></p>
+</section>
+<section id="id5">
+<h3>2.4 通信仕様<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>UART: 115200bps</p></li>
+<li><p>USB HID Vendor: 1ms間隔</p></li>
+</ul>
+</section>
+</section>
+<span id="document-03_functional"></span><section id="id1">
+<h2>3. 機能要件<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>3.1 画像認識機能<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>AIが判定する項目：</p>
+<ul class="simple">
+<li><p>現在のゲーム状態（戦闘、ボックス、メニューなど）</p></li>
+<li><p>卵アイコン（小・大）</p></li>
+<li><p>ポケモンの種類判定</p></li>
+<li><p>アイテム判定</p></li>
+<li><p>プレイヤーの向き</p></li>
+<li><p>ミニマップ位置</p></li>
+<li><p>地図情報</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>3.2 操作制御機能<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>SwitchReport を生成し、UART または USB HID Vendor で送信</p></li>
+<li><p>1ms周期の HID ポーリングに追従可能な速度で送信</p></li>
+</ul>
+</section>
+<section id="gui">
+<h3>3.3 GUI機能<a class="headerlink" href="#gui" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>自動化シナリオの選択</p></li>
+<li><p>AI判定結果の表示</p></li>
+<li><p>コントローラー接続状態の表示</p></li>
+</ul>
+</section>
+</section>
+<span id="document-04_nonfunctional"></span><section id="id1">
+<h2>4. 非機能要件<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="uart">
+<h3>4.1 通信性能（UART）<a class="headerlink" href="#uart" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>115200bps（約11.5KB/s）</p></li>
+<li><p>1バイト送信：約 87?s</p></li>
+<li><p>SwitchReport（8バイト）：約 700?s</p></li>
+<li><p>HIDポーリング：1ms周期 → UARTでも十分対応可能</p></li>
+</ul>
+</section>
+<section id="ai">
+<h3>4.2 AIモデル<a class="headerlink" href="#ai" title="Link to this heading"></a></h3>
+<p>使用予定のAI技術：</p>
+<ul class="simple">
+<li><p>YOLO（UI検出・ミニマップ検出）</p></li>
+<li><p>MobileNet（ポケモン種類判定）</p></li>
+<li><p>OCR（技名・アイテム名）</p></li>
+<li><p>OpenCV（ミニマップ位置特定）</p></li>
+<li><p>ONNX Runtime（高速化）</p></li>
+</ul>
+<p>※AIに提案された構成のため、検証しながら採用可否を判断する。</p>
+</section>
+<section id="id2">
+<h3>4.3 画面解析性能<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>キャプチャデバイスの遅延を考慮し、推論速度は 30?60fps を目標とする。</p></li>
+</ul>
+</section>
+</section>
+<span id="document-05_enviroment"></span><section id="id1">
+<h2>5. 開発環境<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="gui">
+<h3>5.1 GUIアプリ<a class="headerlink" href="#gui" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>言語：C# または Python</p></li>
+<li><p>IDE：Visual Studio / PyCharm / VS Code</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>5.2 コントローラー側<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>言語：C</p></li>
+<li><p>IDE：VS Code</p></li>
+</ul>
+</section>
+<section id="ai">
+<h3>5.3 AI<a class="headerlink" href="#ai" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>言語：Python</p></li>
+<li><p>ライブラリ：OpenCV, YOLO, MobileNet, ONNX Runtime</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>5.4 管理<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Git hub</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>ドキュメント作成<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Sphinx</p></li>
+</ul>
+</section>
+</section>
+<span id="document-06_constraints"></span><section id="id1">
+<h2>6. 制約条件<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Switch の HID ポーリング周期は 1ms → これを満たす必要がある</p></li>
+<li><p>キャプチャデバイスの遅延に依存するため、処理速度の最適化が必須</p></li>
+<li><p>AIモデルの推論速度が自動化の成功率に直結する</p></li>
+<li><p>コントローラー側の処理はリアルタイム性が求められる</p></li>
+</ul>
+</section>
+<span id="document-07_future"></span><section id="id1">
+<h2>7. 今後の課題<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>画像認識精度の向上</p></li>
+<li><p>推論速度の高速化</p></li>
+<li><p>GUIアプリの操作性改善</p></li>
+<li><p>自動化シナリオの拡張（孵化、厳選、アイテム収集など）</p></li>
+<li><p>学習データの収集とモデル改善</p></li>
+</ul>
+</section>
+<span id="document-glossary"></span><section id="id1">
+<h2>用語集<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><strong>SwitchReport</strong><br />
+Nintendo Switch に送信する入力レポート形式。</p>
+<p><strong>UART</strong><br />
+PC → コントローラー間のシリアル通信方式。</p>
+<p><strong>USB HID Vendor</strong><br />
+Switch に入力を送るための USB ベンダー固有 HID。</p>
+<p><strong>YOLO</strong><br />
+物体検出モデル。UIやミニマップ検出に使用。</p>
+<p><strong>MobileNet</strong><br />
+軽量画像分類モデル。ポケモン種類判定に使用。</p>
+<p><strong>OCR</strong><br />
+文字認識。技名・アイテム名の判定に使用。</p>
+</section>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Masahiro Kondo.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
