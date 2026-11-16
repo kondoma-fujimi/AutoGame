@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Configure Switch Controller",
+            "type": "process",
+            "command": "${env:USERPROFILE}/.pico-sdk/cmake/v3.31.5/bin/cmake.exe",
+            "args": [
+                "-S",
+                "${workspaceFolder}/switch_controller",
+                "-B",
+                "${workspaceFolder}/switch_controller/build-vscode",
+                "-G",
+                "Ninja",
+                "-DPICO_BOARD=pico",
+                "-DPICO_SDK_PATH=${env:USERPROFILE}/.pico-sdk/sdk/2.1.1",
+                "-DPICO_TOOLCHAIN_PATH=${env:USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1",
+                "-DCMAKE_MAKE_PROGRAM=${env:USERPROFILE}/.pico-sdk/ninja/v1.12.1/ninja.exe"
+            ],
+            "options": {
+                "env": {
+                    "PICO_SDK_PATH": "${env:USERPROFILE}/.pico-sdk/sdk/2.1.1",
+                    "PICO_TOOLCHAIN_PATH": "${env:USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1",
+                    "Path": "${env:USERPROFILE}/.pico-sdk/toolchain/14_2_Rel1/bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Switch Controller",
+            "type": "process",
+            "command": "${env:USERPROFILE}/.pico-sdk/cmake/v3.31.5/bin/cmake.exe",
+            "args": [
+                "--build",
+                "${workspaceFolder}/switch_controller/build-vscode",
+                "--target",
+                "switch_controller"
+            ],
+            "dependsOn": "Configure Switch Controller",
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+[project]
+name = "PySide Widgets Project"
+requires-python = ">=3.14,<3.15"
+
+[tool.pyside6-project]
+files = ["auto_game.ui", "form.ui", "main.py", "ui_auto_game.py", "ui_form.py"]

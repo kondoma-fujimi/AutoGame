@@ -1,0 +1,203 @@
+<Window x:Class="AutoGameApprication.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AutoGame Menu"
+        Width="560"
+        Height="700"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid>
+        <Border x:Name="DeviceShell"
+                Margin="20"
+                BorderBrush="#741C2C"
+                BorderThickness="5"
+                CornerRadius="64"
+                Effect="{DynamicResource DeviceShadow}"
+                RenderTransformOrigin="0.5,0.5">
+            <Border.Resources>
+                <DropShadowEffect x:Key="DeviceShadow"
+                                  BlurRadius="28"
+                                  Direction="315"
+                                  Opacity="0.45"
+                                  ShadowDepth="12"
+                                  Color="#26050A" />
+            </Border.Resources>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF7180" Offset="0" />
+                    <GradientStop Color="#E63D55" Offset="0.32" />
+                    <GradientStop Color="#A71938" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <ScaleTransform x:Name="OpenScale" ScaleX="0.18" ScaleY="0.18" />
+            </Border.RenderTransform>
+
+            <Grid Margin="32,28,32,28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="DeviceTop" Grid.Row="0" Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Ellipse Width="18" Height="18" Fill="#64E6FF" Stroke="#173D52" StrokeThickness="3" />
+                    <TextBlock Grid.Column="1"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontSize="27"
+                               FontWeight="Bold"
+                               Text="AUTO GAME" />
+                    <Ellipse Grid.Column="2" Width="18" Height="18" Fill="#FFD45C" Stroke="#663A23" StrokeThickness="3" />
+                </Grid>
+
+                <TextBlock Grid.Row="1"
+                           Margin="0,0,0,16"
+                           HorizontalAlignment="Center"
+                           Foreground="#FFE6E8"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Text="PORTABLE CONTROL DATABASE" />
+
+                <Border x:Name="ScreenFrame"
+                        Grid.Row="2"
+                        Padding="18"
+                        Background="#202832"
+                        BorderBrush="#11171E"
+                        BorderThickness="7"
+                        CornerRadius="30"
+                        RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <ScaleTransform x:Name="ScreenScale" ScaleY="0.08" />
+                    </Border.RenderTransform>
+                    <Border.Resources>
+                        <DropShadowEffect x:Key="ScreenShadow"
+                                          BlurRadius="12"
+                                          Opacity="0.65"
+                                          ShadowDepth="4"
+                                          Color="#160000" />
+                    </Border.Resources>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Margin="8,0,8,12"
+                                   Foreground="#8DEBFF"
+                                   FontSize="12"
+                                   FontWeight="Bold"
+                                   Text="SELECT MODE" />
+                        <Border x:Name="MenuSurface"
+                                Grid.Row="1"
+                                Padding="12"
+                                Background="#F1F4F5"
+                                BorderBrush="#74828C"
+                                BorderThickness="2"
+                                CornerRadius="18"
+                                Opacity="0">
+                            <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="8"
+                                Click="GameButton_Click"
+                                Content="Game"
+                                FontSize="25"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Background="#252D35"
+                                BorderBrush="#0C1116"
+                                BorderThickness="2"
+                                Cursor="Hand" />
+
+                        <Button Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="8"
+                                Click="NotImplementedButton_Click"
+                                Tag="Custom"
+                                Content="Custom"
+                                FontSize="25"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Background="#52616B"
+                                BorderBrush="#26323A"
+                                BorderThickness="2"
+                                Cursor="Hand" />
+
+                        <Button Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="8"
+                                Click="NotImplementedButton_Click"
+                                Tag="図鑑"
+                                Content="図鑑"
+                                FontSize="25"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Background="#52616B"
+                                BorderBrush="#26323A"
+                                BorderThickness="2"
+                                Cursor="Hand" />
+
+                        <Button Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="8"
+                                Click="NotImplementedButton_Click"
+                                Tag="計算"
+                                Content="計算"
+                                FontSize="25"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Background="#52616B"
+                                BorderBrush="#26323A"
+                                BorderThickness="2"
+                                Cursor="Hand" />
+                    </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="3" Margin="0,18,0,0">
+                    <Ellipse Width="72"
+                             Height="72"
+                             HorizontalAlignment="Center"
+                             Fill="#E8EEF0"
+                             Stroke="#27323A"
+                             StrokeThickness="5" />
+                    <Ellipse Width="32"
+                             Height="32"
+                             HorizontalAlignment="Center"
+                             Fill="#48B8F2"
+                             Stroke="#27323A"
+                             StrokeThickness="5" />
+                </Grid>
+
+                <TextBlock Grid.Row="4"
+                           Margin="0,28,0,0"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="13"
+                           Text="メニューを選択してください" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

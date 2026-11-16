@@ -1,0 +1,189 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6" pages="2">
+  <diagram name="ページ1" id="0GLa6f-7mmsC3SXc-FWU">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jBouROa9tOIg40ALLlvJ-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="120" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="jBouROa9tOIg40ALLlvJ-2" value="ゲーム" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="90" y="50" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBouROa9tOIg40ALLlvJ-3" value="ゲーム画面" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="100" y="80" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBouROa9tOIg40ALLlvJ-4" value="ゲーム画面表示" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="130" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="jBouROa9tOIg40ALLlvJ-5" value="ボタン類" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="210" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="jBouROa9tOIg40ALLlvJ-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="240" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-1" value="ポケdex" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="22" y="330" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="38" y="380" width="452" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-6" value="データベースを選択" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="48" y="390" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-7" value="データを追加" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="168" y="390" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-8" value="データを削除" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="288" y="390" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-11" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" target="oji5U2YDiCxq8jYEfMfJ-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="330" as="sourcePoint" />
+            <mxPoint x="190" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-12" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" target="oji5U2YDiCxq8jYEfMfJ-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="330" as="sourcePoint" />
+            <mxPoint x="440" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-13" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="oji5U2YDiCxq8jYEfMfJ-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="238" y="330" as="sourcePoint" />
+            <mxPoint x="288" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-14" value="ボタン" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="210" y="290" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-15" value="データグリッドビュー" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="48" y="430" width="402" height="265" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-5" value="データグリッドビュー" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="69" y="470" width="360" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-16" value="テキストボックス?" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="69" y="440" width="361" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="oji5U2YDiCxq8jYEfMfJ-17" value="作成" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="390" width="70" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="TvRRm7SKJq_CLNVnUZmA" name="Python_ポケモン自動化">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="130" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-2" value="ゲーム" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="90" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-3" value="ゲーム画面" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="100" y="90" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-4" value="ゲーム画面表示" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="230" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-5" value="ダメージ計算" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="170" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-6" value="育成記録" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="200" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-7" value="図鑑" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="140" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ApftYSmsu7cZJwzjVPGp-8" value="ゲーム画面表示" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="330" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="390" width="452" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-6" value="ゲーム画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="180" y="410" width="360" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-9" value="読み込み開始" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="180" y="640" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-10" value="読み込み終了" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="310" y="640" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-11" value="画面キャプチャ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="440" y="640" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-12" value="マニュアル操作" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="180" y="680" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8vZQNegkWNW6P-yKW8BY-13" value="オート操作" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="680" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-1" value="オートの種類" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="680" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-2" value="Run" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="680" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-3" value="ログ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="180" y="720" width="380" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-4" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="830" width="452" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-5" value="卵孵化画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="840" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-6" value="孵化モード" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="880" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-7" value="過去にセットしたポケモンの画像" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="920" width="430" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-8" value="テキスト入力" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="880" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDJfCze-bLUq_JMZuALF-9" value="ポケモン名" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="990" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-1" value="ポケモン名" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="990" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-2" value="卵を置くボックス" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1030" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-3" value="卵を置くボックス" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="1030" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-4" value="親1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1070" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-5" value="親1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="1070" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-6" value="親2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1110" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-7" value="親2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="1110" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HwKOeLtjuCyOdGpK1-x_-8" value="孵化係" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1150" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="t5g6CqEn7zHQBbRP7TOT-1" value="PokehiroMain.py" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="492" y="140" width="108" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t5g6CqEn7zHQBbRP7TOT-2" value="GameWindow.py" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="390" width="108" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="t5g6CqEn7zHQBbRP7TOT-3" value="EggStack.py" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="835" width="108" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

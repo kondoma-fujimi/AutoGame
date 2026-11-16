@@ -1,0 +1,6 @@
+build
+!.vscode/*
+pico-sdk/
+pico-examples-master/
+flash_nuke.uf2
+.$pokehiro_設計図.drawio.bkp
