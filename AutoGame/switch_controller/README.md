@@ -1,16 +1,12 @@
 # Switch controller
 
 このプロジェクトは Raspberry Pi Pico SDK 2.1.1 を使用します。
-SDK と `pico-examples` はこのリポジトリには含めていないため、別途 SDK を用意し、
-サブモジュールを初期化してください。
+SDK はこのリポジトリに含まれていないため、別途インストールしてください。
 
-ビルド前に `PICO_SDK_PATH` を SDK のフォルダに設定します。
+## VS Code でビルド
 
-```powershell
-$env:PICO_SDK_PATH = "C:\path\to\pico-sdk"
-cmake -S . -B build -DPICO_BOARD=pico
-cmake --build build
-```
+1. `AutoGame` フォルダーを VS Code で開きます。
+2. Pico SDK 2.1.1 と付属の ARM GCC、CMake、Ninja が `%USERPROFILE%\.pico-sdk` にインストールされていることを確認します。
+3. **Ctrl+Shift+B** を押し、**Build Switch Controller** を実行します。初回はCMake構成後にビルドし、以後も同じタスクで再構成とビルドを行います。
 
-`build` フォルダとビルド済みの `flash_nuke.uf2` はローカル生成物のため、
-Git の追跡対象外です。
+生成物は `switch_controller\build-vscode` に出力されます。古い `build` フォルダーのキャッシュは再利用しません。

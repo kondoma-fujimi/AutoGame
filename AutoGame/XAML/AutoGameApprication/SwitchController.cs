@@ -9,17 +9,25 @@ namespace AutoGameApprication
     internal sealed class SwitchController : IDisposable
     {
         private const int HatNone = 0x08;
-        private readonly SerialPort _serialPort = new("COM3", 115200)
-        {
-            WriteTimeout = 500
-        };
+        private readonly SerialPort _serialPort;
+        private readonly string _portName;
+        private byte[]? _lastLoggedReport;
         private readonly DispatcherTimer _timer = new()
         {
             Interval = TimeSpan.FromMilliseconds(20)
         };
 
-        public SwitchController()
+        public SwitchController(string portName)
         {
+            _portName = portName;
+            _serialPort = new SerialPort(portName, 115200)
+            {
+                DataBits = 8,
+                Parity = Parity.None,
+                StopBits = StopBits.One,
+                Handshake = Handshake.None,
+                WriteTimeout = 500
+            };
             _timer.Tick += SendReport;
         }
 
@@ -29,9 +37,9 @@ namespace AutoGameApprication
         {
             try
             {
-                if (!SerialPort.GetPortNames().Contains("COM3", StringComparer.OrdinalIgnoreCase))
+                if (!SerialPort.GetPortNames().Contains(_portName, StringComparer.OrdinalIgnoreCase))
                 {
-                    throw new InvalidOperationException("COM3ポートが見つかりませんでした。");
+                    throw new InvalidOperationException($"{_portName}ポートが見つかりませんでした。");
                 }
 
                 _serialPort.Open();
@@ -46,16 +54,25 @@ namespace AutoGameApprication
 
         private void SendReport(object? sender, EventArgs e)
         {
+            byte[] report;
             try
             {
-                byte[] report = BuildReport();
+                report = BuildReport();
                 _serialPort.Write(report, 0, report.Length);
             }
             catch (Exception exception)
             {
+                AppLog.Write($"シリアル送信エラー ({_portName}): {exception.Message}");
                 Dispose();
                 Disconnected?.Invoke(this, EventArgs.Empty);
                 MessageBox.Show($"コントローラー通信を終了しました。\n{exception.Message}", "通信エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (_lastLoggedReport is null || !_lastLoggedReport.SequenceEqual(report))
+            {
+                AppLog.Write($"Manualコントローラー信号 ({_portName}): {Convert.ToHexString(report)}");
+                _lastLoggedReport = report;
             }
         }
 

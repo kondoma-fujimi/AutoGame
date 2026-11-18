@@ -1,5 +1,6 @@
 #include "pico/stdlib.h"
 #include "pico/time.h"
+#include "hardware/sync.h"
 #include "hardware/uart.h"
 #include "tusb.h"
 #include <ctype.h>
@@ -53,7 +54,8 @@ GamepadState state = {
 };
 
 bool key_state[256] = {false};
-SwitchReport switchReport = {0};
+volatile SwitchReport switchReport = {0};
+volatile bool switchReportReady = false;
 uint64_t nextRuntime;
 volatile uint8_t rxBuffer[8];
 volatile uint8_t rxIndex = 0;
@@ -123,9 +125,11 @@ void on_uart_rx() {
         rxBuffer[rxIndex++] = uart_getc(uart0);
 
         if (rxIndex == 8) {
-            memcpy(&switchReport, (const uint8_t *)rxBuffer, 8);
+            SwitchReport receivedReport;
+            memcpy(&receivedReport, (const uint8_t *)rxBuffer, sizeof(receivedReport));
+            switchReport = receivedReport;
+            switchReportReady = true;
             rxIndex = 0;
-            send_report(&switchReport, getReportSize());  // ������Switch�֔��f
         }
     }
 }
@@ -162,10 +166,10 @@ int main() {
 			continue;
 		}
 
-        for (int i = 0; i < NUM_LEDS; ++i) {
-            uint32_t color = 0xFF000000; // �΁iGRB���j
-            pio_sm_put_blocking(pio, sm, color);
-        }
+        //for (int i = 0; i < NUM_LEDS; ++i) {
+        //    uint32_t color = 0xFF000000; // �΁iGRB���j
+        //    pio_sm_put_blocking(pio, sm, color);
+        //}
         //sleep_ms(500);
         // UART��M�i�u���b�L���O�܂��͔񓯊��ł��j
         //uart_read_blocking(uart0, (uint8_t*)&switchReport, sizeof(SwitchReport));
@@ -173,7 +177,18 @@ int main() {
         //uart_write_blocking(uart0, (uint8_t*)&switchReport, sizeof(SwitchReport));
         // USB FEATURES : Send/Get USB Features (including Player LEDs on X-Input)
         //switchReport = getSwitchReport();
-		send_report(&switchReport, getReportSize());
+        SwitchReport report;
+        uint32_t interruptState = save_and_disable_interrupts();
+        bool hasReport = switchReportReady;
+        if (hasReport) {
+            report = switchReport;
+            switchReportReady = false;
+        }
+        restore_interrupts(interruptState);
+
+        if (hasReport) {
+            send_report(&report, getReportSize());
+        }
         tud_task();
         nextRuntime = getMicro() + GAMEPAD_POLL_MICRO;
 

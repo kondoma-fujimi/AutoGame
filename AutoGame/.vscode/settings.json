@@ -1,0 +1,15 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "git.ignoreLimitWarning": true,
+    "git.statusLimit": 15000,
+    "git.openRepositoryInParentFolders": "never",
+    "git.ignoredRepositories": [
+        "D:/dev/my_Project",
+        "D:/dev/my_Project/AutoGame/MainWindow",
+        "D:/dev/my_Project/AutoGame/switch_controller/pico-sdk",
+        "D:/dev/my_Project/AutoGame/switch_controller/tinyusb"
+    ],
+    "cmake.sourceDirectory": "D:/dev/my_Project/AutoGame/switch_controller",
+    "cmake.buildDirectory": "${workspaceFolder}/switch_controller/build-vscode",
+    "cmake.configureOnOpen": true
+}

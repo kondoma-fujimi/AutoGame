@@ -21,9 +21,16 @@ namespace AutoGameApprication
 
         public bool IsCapturing => _capture?.IsOpened() == true;
         public bool IsRecording => _isRecording;
-
-        public MainWindow()
+        public GameSettings Settings { get; set; }
+        public string OutputDirectory
         {
+            get => Settings.OutputDirectory;
+            set => Settings.OutputDirectory = value;
+        }
+
+        public MainWindow(GameSettings? settings = null)
+        {
+            Settings = settings ?? new GameSettings();
             InitializeComponent();
             _captureTimer = new DispatcherTimer
             {
@@ -35,6 +42,7 @@ namespace AutoGameApprication
             _controlWindow = new ControlWindow(this);
             Loaded += MainWindow_Loaded;
             Closed += (_, _) => StopCapture();
+            AppLog.Write($"ゲーム画面を開始しました: {Settings.GameTitle}");
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -43,6 +51,7 @@ namespace AutoGameApprication
             Loaded -= MainWindow_Loaded;
             _controlWindow.Owner = this;
             _controlWindow.Show();
+            _controlWindow.ShowLogWindow();
         }
 
         public void ToggleCapture()
@@ -53,17 +62,19 @@ namespace AutoGameApprication
                 return;
             }
 
-            var capture = new VideoCapture(0, VideoCaptureAPIs.DSHOW);
+            int deviceIndex = Settings.CaptureDeviceIndex;
+            var capture = new VideoCapture(deviceIndex, VideoCaptureAPIs.DSHOW);
             if (!capture.IsOpened())
             {
                 capture.Dispose();
-                throw new InvalidOperationException("キャプチャボードを開けませんでした。接続とデバイス番号を確認してください。");
+                throw new InvalidOperationException($"キャプチャデバイス番号{deviceIndex}を開けませんでした。接続と選択したデバイス番号を確認してください。");
             }
 
             capture.Set(VideoCaptureProperties.FrameWidth, 1920);
             capture.Set(VideoCaptureProperties.FrameHeight, 1080);
             _capture = capture;
             _captureTimer.Start();
+            AppLog.Write($"キャプチャデバイス番号{deviceIndex}に接続しました。");
         }
 
         public void SaveScreenshot()
@@ -73,7 +84,7 @@ namespace AutoGameApprication
                 throw new InvalidOperationException("保存できる映像フレームがありません。");
             }
 
-            string directory = Path.Combine(Environment.CurrentDirectory, "image");
+            string directory = Path.Combine(OutputDirectory, "image");
             Directory.CreateDirectory(directory);
             string path = Path.Combine(directory, $"capture_{DateTime.Now:yyyyMMdd_HHmmss}.png");
             if (!Cv2.ImWrite(path, _currentFrame))
@@ -82,6 +93,7 @@ namespace AutoGameApprication
             }
 
             MessageBox.Show(this, $"保存しました。\n{path}", "撮影", MessageBoxButton.OK, MessageBoxImage.Information);
+            AppLog.Write($"スクリーンショットを保存しました: {path}");
         }
 
         public void ToggleRecording()
@@ -97,9 +109,10 @@ namespace AutoGameApprication
                 throw new InvalidOperationException("録画を開始するには、先にキャプチャボードへ接続してください。");
             }
 
-            Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "frames"));
+            Directory.CreateDirectory(Path.Combine(OutputDirectory, "frames"));
             _recordingFrameIndex = 0;
             _isRecording = true;
+            AppLog.Write("録画を開始しました。");
         }
 
         private void CaptureTimer_Tick(object? sender, EventArgs e)
@@ -122,7 +135,7 @@ namespace AutoGameApprication
             if (_isRecording)
             {
                 string path = Path.Combine(
-                    Environment.CurrentDirectory,
+                    OutputDirectory,
                     "frames",
                     $"frame_{_recordingFrameIndex++:D5}.png");
                 Cv2.ImWrite(path, frame);
@@ -131,11 +144,21 @@ namespace AutoGameApprication
 
         private void StopCapture()
         {
+            bool wasCapturing = _capture is not null;
+            bool wasRecording = _isRecording;
             _captureTimer.Stop();
             _isRecording = false;
             _capture?.Release();
             _capture?.Dispose();
             _capture = null;
+            if (wasRecording)
+            {
+                AppLog.Write("アプリ終了時に録画を停止しました。");
+            }
+            if (wasCapturing)
+            {
+                AppLog.Write("キャプチャボードの接続を終了しました。");
+            }
             _currentFrame?.Dispose();
             _currentFrame = null;
             GameScreen.Source = null;

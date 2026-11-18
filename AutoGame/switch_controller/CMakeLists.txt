@@ -19,23 +19,22 @@ include(pico_sdk_import.cmake)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${PICO_SDK_PATH}/lib/tinyusb/src)
 include_directories(src)
-project(poke_pico)
+project(switch_controller)
 
 pico_sdk_init()
 
-add_executable(poke_pico main.c 
+add_executable(switch_controller main.c 
 src/usb_descriptors.c
 src/MPG.c
 src/tusb_driver.c)
 
-# インクルードパスの追加（必要なら）
-# target_include_directories(poke_pico PRIVATE include)
+target_include_directories(switch_controller PRIVATE include)
 
-target_link_libraries(poke_pico 
+target_link_libraries(switch_controller 
 pico_stdlib 
 hardware_pio
 tinyusb_device
 tinyusb_board
 )
 
-pico_add_extra_outputs(poke_pico)
+pico_add_extra_outputs(switch_controller)

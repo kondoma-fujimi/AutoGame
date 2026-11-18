@@ -69,9 +69,9 @@ namespace AutoGameApprication
 
         private void GameButton_Click(object sender, RoutedEventArgs e)
         {
-            var gameWindow = new MainWindow();
-            Application.Current.MainWindow = gameWindow;
-            gameWindow.Show();
+            var projectSelectionWindow = new ProjectSelectionWindow();
+            Application.Current.MainWindow = projectSelectionWindow;
+            projectSelectionWindow.Show();
             Close();
         }
 
