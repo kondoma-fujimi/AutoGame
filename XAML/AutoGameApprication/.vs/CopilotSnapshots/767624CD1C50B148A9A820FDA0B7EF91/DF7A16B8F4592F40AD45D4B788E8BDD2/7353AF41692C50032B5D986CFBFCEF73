@@ -1,0 +1,221 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Shapes;
+
+namespace AutoGameApprication
+{
+    public partial class ControlWindow : Window
+    {
+        private const int ButtonCount = 5;
+        private const double StrokeThickness = 3;
+        private const double WindowPadding = 38;
+        private const double GapDegrees = 0;
+
+        private static readonly string[] ButtonLabels =
+        {
+            "接続\n終了",
+            "撮影",
+            "録画",
+            "Manual",
+            "Auto"
+        };
+
+        private static readonly string[] ButtonToolTips =
+        {
+            "キャプチャボード接続 / 終了",
+            "スクリーンショット",
+            "録画",
+            "Manual操作",
+            "Auto操作"
+        };
+
+        public ControlWindow()
+        {
+            InitializeComponent();
+            Loaded += (_, _) => UpdateLayoutButtons();
+            SizeChanged += (_, _) => UpdateLayoutButtons();
+        }
+
+        private void UpdateLayoutButtons()
+        {
+            ButtonCanvas.Children.Clear();
+
+            double width = RootGrid.ActualWidth;
+            double height = RootGrid.ActualHeight;
+            if (width <= 0 || height <= 0)
+            {
+                return;
+            }
+
+            double centerX = width / 2;
+            double centerY = height / 2;
+            double outerRadius = Math.Min(width, height) / 2 - StrokeThickness / 2;
+            double buttonRadius = outerRadius - WindowPadding;
+
+            double sliceSweep = 360.0 / ButtonCount;
+
+            for (int index = 0; index < ButtonCount; index++)
+            {
+                double centerAngle = -90 + index * sliceSweep;
+                double startAngle = centerAngle + GapDegrees / 2;
+                double sweep = sliceSweep - GapDegrees;
+                double endAngle = startAngle + sweep;
+
+                Point startPoint = PointOnCircle(centerX, centerY, buttonRadius, startAngle);
+                Point endPoint = PointOnCircle(centerX, centerY, buttonRadius, endAngle);
+
+                var segment = new StreamGeometry();
+                using (StreamGeometryContext context = segment.Open())
+                {
+                    context.BeginFigure(startPoint, false, false);
+                    context.ArcTo(
+                        endPoint,
+                        new Size(buttonRadius, buttonRadius),
+                        0,
+                        sweep > 180,
+                        SweepDirection.Clockwise,
+                        true,
+                        true);
+                    context.LineTo(new Point(centerX, centerY), true, true);
+                    context.LineTo(startPoint, true, true);
+                }
+                segment.Freeze();
+
+                Rect buttonBounds = GetSectorBounds(
+                    centerX,
+                    centerY,
+                    buttonRadius,
+                    startAngle,
+                    sweep);
+
+                Geometry buttonClip = CreateSectorGeometry(
+                    centerX - buttonBounds.Left,
+                    centerY - buttonBounds.Top,
+                    buttonRadius,
+                    startAngle,
+                    sweep);
+
+                string buttonName = ButtonLabels[index];
+                var button = new Button
+                {
+                    Width = buttonBounds.Width,
+                    Height = buttonBounds.Height,
+                    Content = buttonName,
+                    ToolTip = ButtonToolTips[index],
+                    FontWeight = FontWeights.Bold,
+                    Background = Brushes.Black,
+                    Foreground = Brushes.White,
+                    FontSize = 14,
+                    Padding = new Thickness(2),
+                    Clip = buttonClip
+                };
+
+                button.Click += (_, _) => MessageBox.Show(buttonName);
+                Canvas.SetLeft(button, buttonBounds.Left);
+                Canvas.SetTop(button, buttonBounds.Top);
+                ButtonCanvas.Children.Add(button);
+
+                ButtonCanvas.Children.Add(new Path
+                {
+                    Data = segment,
+                    Stroke = Brushes.LightSteelBlue,
+                    StrokeThickness = StrokeThickness,
+                    Fill = Brushes.Transparent,
+                    IsHitTestVisible = false,
+                    StrokeStartLineCap = PenLineCap.Round,
+                    StrokeEndLineCap = PenLineCap.Round
+                });
+            }
+
+            var outerCircle = new Ellipse
+            {
+                Width = outerRadius * 2,
+                Height = outerRadius * 2,
+                Stroke = Brushes.LightSteelBlue,
+                StrokeThickness = StrokeThickness,
+                Fill = Brushes.Transparent,
+                IsHitTestVisible = false
+            };
+            Canvas.SetLeft(outerCircle, centerX - outerRadius);
+            Canvas.SetTop(outerCircle, centerY - outerRadius);
+            ButtonCanvas.Children.Add(outerCircle);
+        }
+
+        private static Geometry CreateSectorGeometry(
+            double centerX,
+            double centerY,
+            double radius,
+            double startAngle,
+            double sweep)
+        {
+            Point startPoint = PointOnCircle(centerX, centerY, radius, startAngle);
+            Point endPoint = PointOnCircle(centerX, centerY, radius, startAngle + sweep);
+
+            var geometry = new StreamGeometry();
+            using (StreamGeometryContext context = geometry.Open())
+            {
+                context.BeginFigure(startPoint, true, true);
+                context.ArcTo(
+                    endPoint,
+                    new Size(radius, radius),
+                    0,
+                    sweep > 180,
+                    SweepDirection.Clockwise,
+                    true,
+                    true);
+                context.LineTo(new Point(centerX, centerY), true, true);
+            }
+
+            geometry.Freeze();
+            return geometry;
+        }
+
+        private static Rect GetSectorBounds(
+            double centerX,
+            double centerY,
+            double radius,
+            double startAngle,
+            double sweep)
+        {
+            double left = centerX;
+            double top = centerY;
+            double right = centerX;
+            double bottom = centerY;
+
+            for (int step = 0; step <= 72; step++)
+            {
+                Point point = PointOnCircle(
+                    centerX,
+                    centerY,
+                    radius,
+                    startAngle + sweep * step / 72.0);
+
+                left = Math.Min(left, point.X);
+                top = Math.Min(top, point.Y);
+                right = Math.Max(right, point.X);
+                bottom = Math.Max(bottom, point.Y);
+            }
+
+            return new Rect(new Point(left, top), new Point(right, bottom));
+        }
+
+        private static Point PointOnCircle(double centerX, double centerY, double radius, double angle)
+        {
+            double radians = angle * Math.PI / 180;
+            return new Point(
+                centerX + Math.Cos(radians) * radius,
+                centerY + Math.Sin(radians) * radius);
+        }
+        // タイトルバーが無いのでドラッグで移動できるようにする
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                try { DragMove(); } catch { /* 何もしない */ }
+            }
+        }
+    }
+}
